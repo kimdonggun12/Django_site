@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from bs4 import BeautifulSoup
-from .models import Post
+from .models import Post, Category
 from django.contrib.auth.models import User
 
 
@@ -12,6 +12,10 @@ class TestView(TestCase):
         self.user_django = User.objects.create_user(username='django', password='qlalfqjsgh1')
 
         self.user_django2 = User.objects.create_user(username='django2', password='qlalfqjsgh1')
+        self.category_programming = Category.objects.create(name='programming', slug='programming')
+        self.category_music = Category.objects.create(name='music', slug='music')
+
+
     def test_post_list(self):
         # 1.1 포스트 목록 페이지를 가져온다
         response = self.client.get("/blog/")
@@ -36,12 +40,14 @@ class TestView(TestCase):
         post_001 = Post.objects.create(
             title = '첫번째 포스트입니다.',
             content = 'Hello world ',
-            author = self.user_django
+            author = self.user_django,
+            category = self.category_programming
         )
         post_002 =  Post.objects.create(
             title = '두번째 포스트입니다.',
             content = '두번째 Hello world ',
-            author = self.user_django2
+            author = self.user_django2,
+            category = self.category_music
         )
         self.assertEqual(Post.objects.count(), 2)
 
