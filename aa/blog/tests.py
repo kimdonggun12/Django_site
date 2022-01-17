@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from bs4 import BeautifulSoup
-from .models import Post, Category
+from .models import Post, Category, Tag
 from django.contrib.auth.models import User
 
 
@@ -15,6 +15,9 @@ class TestView(TestCase):
         self.category_programming = Category.objects.create(name='programming', slug='programming')
         self.category_music = Category.objects.create(name='music', slug='music')
 
+        self.tag_python_kor = Tag.objects.create(name='파이썬공부', slug = '파이썬공부')
+        self.tag_python = Tag.objects.create(name='python', slug='python')
+        self.tag_hello = Tag.objects.create(name='hello', slug='hello')
 
     def test_post_list(self):
         # 1.1 포스트 목록 페이지를 가져온다
@@ -43,6 +46,8 @@ class TestView(TestCase):
             author = self.user_django,
             category = self.category_programming
         )
+        self.post_001.tags.add(self.tag_hello)
+
         post_002 =  Post.objects.create(
             title = '두번째 포스트입니다.',
             content = '두번째 Hello world ',

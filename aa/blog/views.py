@@ -18,7 +18,7 @@ class PostList(ListView):
 # FBV형태로
 def category_page(request, slug):
 
-    if slug =='no_category':
+    if slug == 'no_category':
         category='미분류'
         post_list=Post.objects.filter(category=None)
     else:
