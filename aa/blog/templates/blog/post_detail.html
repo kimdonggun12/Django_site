@@ -1,5 +1,4 @@
 {% extends 'blog/base.html' %}
-{% load crispy_forms_tags %}
 
 {% block head_title %}
     {{ post.title }} - Blog
@@ -71,7 +70,7 @@
                 {% if user.is_authenticated %}
                 <form id="comment-form" method="POST" action="{{ post.get_absolute_url }}new_comment/">
                     {% csrf_token %}
-                    <div class="form-group">{{ comment_form | crispy }}</div>
+                    <div class="form-group">{{ comment_form  }}</div>
                     <button class="btn btn-primary" type="submit">Submit</button>
                 </form>
                 {% else %}
