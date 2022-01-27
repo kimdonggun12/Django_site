@@ -108,6 +108,7 @@ class PostList(ListView):
     model = Post
     # template_name = 'blog/index.html'
     ordering = '-pk'
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PostList, self).get_context_data()
