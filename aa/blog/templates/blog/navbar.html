@@ -25,11 +25,11 @@
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {% if user.socialaccount_set.all.0.get_avatar_url %}
                         <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
                     {% else %}
-                        <img class="rounded-circle" src="https://doitdjango.com/avatar/id/131/83a0315115dc3c15/svg/{{ user.email }}" width="25x">
+                        <img class="rounded-circle" src="http://placehold.it/50x50" width="25x">
                     {% endif %}
                     &nbsp;
                     {{ user.username }}
