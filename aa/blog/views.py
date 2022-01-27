@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Category, Tag
+from .models import Post, Category, Tag, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
@@ -173,6 +173,15 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
             return super(CommentUpdate, self).dispatch(request, *args, **kwargs)
         else:
             raise PermissionDenied
+
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    post = comment.post
+    if request.user.is_authenticated and request.user == comment.author:
+        comment.delete()
+        return redirect(post.get_absolute_url())
+    else:
+        raise PermissionDenied
 
 
 
