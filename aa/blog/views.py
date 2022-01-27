@@ -163,6 +163,18 @@ def new_comment(request, pk):
     else:
         raise PermissionDenied
 
+class CommentUpdate(LoginRequiredMixin, UpdateView):
+
+    model = Comment
+    form_class = CommentForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and request.user == self.get_object().author:
+            return super(CommentUpdate, self).dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied
+
+
 
 # def index(request):
 #     posts = Post.objects.all().order_by('-pk')
