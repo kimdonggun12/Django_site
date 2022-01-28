@@ -1,82 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-
+{% load static %}
+<html lang='ko'>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-        <title>Landing Page</title>
-
-        <!--    Google Fonts-->
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-        <!--Fontawesom-->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-
-        <!--Animated CSS-->
-        <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!--Bootstrap Carousel-->
-        <link type="text/css" rel="stylesheet" href="css/carousel.css" />
-
-        <link rel="stylesheet" href="css/isotope/style.css">
-
-        <!--Main Stylesheet-->
-        <link href="css/style.css" rel="stylesheet">
-        <!--Responsive Framework-->
-        <link href="css/responsive.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <meta charset="UTF-8">
+        <title>About CodeDiary18</title>
+        <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'single_pages/css/aboutme.css' %}" media="screen">
+        <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
     </head>
+    <body>
+        {% include 'blog/navbar.html' %}
+        <section>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1>안녕하세요! Donggun 입니다~!</h1>
+                        <h3>자기소개 페이지입니다</h3>
+                    </div>
+                    <div class="col-lg-4">
+                        <img class="img-fluid" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMDNfMjM3%2FMDAxNTQzODM4OTkyNjcx.LT735Q8QT1Bg18vcIJB2OhZPiaORGRypUIrFG0wN0sEg.b8984wrcrKpcfypUKKBx7ZXPSTRtTDUYd1e_noxomKEg.JPEG.moonkynge%2F20181203_143100.jpg&type=sc960_832">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-light margin-for-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>블로그를 만들면서 사용한 것</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card" data-toggle="modal" data-target="#pycon2017">
+                            <img class="card-img-top" src="https://askcompanyjpe.blob.core.windows.net/media/askdjango/course/2017/03/06/49/4984ad9285ad40828156f6c3f4981e2c.jpg" height="300px">
+                            <div class="card-body">
+                                <h5 class="card-title">장고</h5>
+                                <p>Django Framework</p>
+                            </div>
+                        </div>
+                    </div>
 
-    <body data-spy="scroll" data-target="#header">
-    <nav>
-        <a href="'/blog/">Blog로 돌아가기</a>
-        <a href="'/about_me/">About me</a>
-    </nav>
-        <p>
-    <h2> 안녕하세요 </h2>
-    <h2> 이력 </h2>
-    <h2> Portfolio </h2>
-        </p>
+                    <div class="col-lg-4">
+                        <div class="card" data-toggle="modal" data-target="#inflearn_django2">
+                            <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" height="300px">
+                            <div class="card-body">
+                                <h5 class="card-title">파이썬</h5>
+                                <p>Python</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-lg-4">
+                        <div class="card" data-toggle="modal" data-target="#automation_python">
+                            <img class="card-img-top" src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fp2rPl%2FbtqNOJ5PIwr%2FfgTXlBnMiYdK3AoUg3zsdK%2Fimg.png" height="300px">
+                            <div class="card-body">
+                                <h5 class="card-title">html, css, js</h5>
+                                <p>html과 css 그리고 javascript</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="fixed-bottom">
+            {% include 'blog/footer.html' %}
+        </div>
+        <!--모달은 여기다 추가-->
 
-        <!--Isotope-->
-        <script src="js/isotope/min/scripts-min.js"></script>
-        <script src="js/isotope/cells-by-row.js"></script>
-        <script src="js/isotope/isotope.pkgd.min.js"></script>
-        <script src="js/isotope/packery-mode.pkgd.min.js"></script>
-        <script src="js/isotope/scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
-
-        <!--Back To Top-->
-        <script src="js/backtotop.js"></script>
-
-
-        <!--JQuery Click to Scroll down with Menu-->
-        <script src="js/jquery.localScroll.min.js"></script>
-        <script src="js/jquery.scrollTo.min.js"></script>
-        <!--WOW With Animation-->
-        <script src="js/wow.min.js"></script>
-        <!--WOW Activated-->
-        <script>
-            new WOW().init();
-        </script>
-
-
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Custom JavaScript-->
-        <script src="js/main.js"></script>
     </body>
-
 </html>
